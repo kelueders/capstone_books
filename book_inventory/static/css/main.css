@@ -1,0 +1,99 @@
+/* Nav Styles */
+
+.ct-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Main Logo Image */
+.ct-nav img {
+    padding: 20px;
+}
+
+#horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+}
+
+#horizontal-list li, #horizontal-list a {
+    display: inline;
+    text-decoration: none;
+    padding: .5vw;
+    color: black;
+}
+
+#horizontal-list a:nth-last-child(1) {
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin-right: .2vw;
+}
+
+/* End Nav Styles */
+
+/* Hero Section Styles */
+
+#header-text {
+    padding: 2vw;
+}
+
+.header-image {
+    width: 82%;
+    max-width: 100%;
+}
+
+/* End of Hero Section */
+
+/* Middle Section Styles */
+
+#middle-text{
+    text-align: center;
+    padding: 13vh; 
+}
+
+#middle-text h2{
+    padding: 1.5vw; 
+}
+
+/* End of Middle Section */
+
+/* Feature Section Styles */
+#api-image, #graphql-image, #database-image {
+    margin-bottom: 10vh;
+}
+
+#features-section {
+    margin: 8vw;
+}
+
+/* End of Features Section */
+
+/* Community Section Styles */
+
+#Drone-image{
+    width: 75%;
+    margin-left: 5vw; 
+    padding: 40px;
+}
+
+/* End of Community Section */
+
+/* Footer Section Styles */
+
+.footer-text-flex{
+    display: flex;
+    flex-direction: column; 
+    margin-top: 3vw;
+}
+
+#footer-logo {
+    width: 100%;
+    max-width: 100%;
+}
+
+#footer {
+    border-top: 3 px solid black;
+    margin-top: 20 vh;
+}
+
+/* End Footer Section */
