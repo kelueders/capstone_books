@@ -1,4 +1,4 @@
 books_env
 __pycache__
-.env 
+*.env 
 migrations
