@@ -1,0 +1,43 @@
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset class="title-field">
+            {{ form.title.label }}
+            {{ form.title(class='form-control', placeholder='Title') }}
+        </fieldset>
+        <fieldset class="author_first">
+            {{ form.author_first.label }}
+            {{ form.author_first(class='form-control', placeholder='Author First Name') }}
+        </fieldset>
+        <fieldset class="author_last">
+            {{ form.author_last.label }}
+            {{ form.author_last(class='form-control', placeholder='Author Last Name') }}
+        </fieldset>
+        <fieldset class="summary-field">
+            {{ form.summary.label }}
+            {{ form.summary(class='form-control', placeholder='Summary') }}
+        </fieldset>
+        <fieldset class="price-field">
+            {{ form.price.label }}
+            {{ form.price(class='form-control', placeholder='Price') }}
+        </fieldset>
+        <fieldset class="pages-field">
+            {{ form.num_pages.label }}
+            {{ form.num_pages(class='form-control', placeholder='Page Count') }}
+        </fieldset>
+        <fieldset class="publisher-field">
+            {{ form.publisher.label }}
+            {{ form.publisher(class='form-control', placeholder='Publisher') }}
+        </fieldset>
+        <fieldset class="year-field">
+            {{ form.published_year.label }}
+            {{ form.published_year(class='form-control', placeholder='Published Year') }}
+        </fieldset>
+        <fieldset class="isbn-field">
+            {{ form.isbn.label }}
+            {{ form.isbn(class='form-control', placeholder='ISBN') }}
+        </fieldset>
+
+        {{ form.submit_button(class='btn btn-primary btn-block mt-2') }}
+    </div>
+</form>

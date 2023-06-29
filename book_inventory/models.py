@@ -62,7 +62,7 @@ class Book(db.Model):
     price = db.Column(db.Numeric(precision = 7, scale = 2))
     num_pages = db.Column(db.Integer)
     publisher = db.Column(db.String(100), nullable = True)
-    published_year = db.Column(db.String(4), nullable = True)
+    published_year = db.Column(db.String(150), nullable = True)
     isbn = db.Column(db.String(30), nullable = True)
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
     # One User to Many Books, so the foreign key is in the Book Class

@@ -4,10 +4,6 @@ from book_inventory.models import db, Book, book_schema, books_schema
 
 api = Blueprint('api', __name__, url_prefix='/api')
 
-@api.route('/getdata')
-def getdata():
-    return {'some': 'value'}
-
 # Create Book Endpoint
 @api.route('/books', methods = ['POST'])
 @token_required

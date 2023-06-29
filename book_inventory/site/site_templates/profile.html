@@ -19,6 +19,14 @@
 
 <header class="hero-section">
     <h3 class="header-text">Welcome to Books Galore, {{ current_user.username }}!</h3>
+    <main class="container book_form">
+        <div class="row">
+            <aside class="col-12 col-md-6">
+                <h2>Add a Book to Your Collection!</h2>
+                {% include 'bookform.html' %}
+            </aside>
+        </div>
+    </main>
 </header>
 
 <div class="container">
@@ -27,6 +35,26 @@
         <li class="list-group-item">Email: {{ current_user.email }}</li>
         <li class="list-group-item">Token: {{ current_user.token }}</li>    
     </ul>
+    <div class="row">
+        {% for book in books %}
+        <div class="card" style="width: 18rem;">
+            <img src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg" class="card-img-top" alt="open book">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">{{ book.summary }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Author: {{book.author_first}} {{book.author_last}}</li>
+                <li class="list-group-item">Page Count: {{ book.num_pages }}</li>
+                <li class="list-group-item">Published Year: {{ book.published_year}} </li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Update </a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 
