@@ -97,3 +97,26 @@
 }
 
 /* End Footer Section */
+
+/* Profile Section */
+
+.hero-section {
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgba(30, 115, 172, .7), rgba(142, 57, 153, .6)), url(../images/books.jpg);
+    background-size: cover;
+    background-position: 35% 50%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    position: relative;
+}
+
+.header-text{
+    display:flex;
+    justify-content: center;
+    padding-top: 2%;
+    left: 20rem;
+    top: 10rem;
+    color: white; 
+}
+
+/* End Profile Section */

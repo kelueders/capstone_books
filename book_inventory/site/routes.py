@@ -6,3 +6,7 @@ site = Blueprint('site', __name__, template_folder='site_templates')
 def home():
     print("Here is my project about books!")
     return render_template('index.html')
+
+@site.route('/profile')
+def profile():
+    return render_template('profile.html')
