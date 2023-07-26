@@ -1,0 +1,12 @@
+<form method = "POST">
+    {{ form.hidden_tag() }}          
+    <div class="form-group">
+        <fieldset id="genre-field">
+            {{ form.genre.label }}
+            {{ form.genre(class='form-control', placeholder = "genre") }}
+        </fieldset>
+
+        <!-- Submit Button Field -->
+        {{ form.submit_button(class='btn btn-primary btn-block') }}
+    </div>
+</form>

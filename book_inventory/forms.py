@@ -12,12 +12,9 @@ class UserLoginForm(FlaskForm):
 
 class BookForm(FlaskForm):
     title = StringField('title', validators = [DataRequired()])
-    author_first = StringField('author_first', validators = [DataRequired()])
-    author_last = StringField('author_last', validators = [DataRequired()])
-    summary = StringField('summary')
-    price = DecimalField('price', places=2)
-    num_pages = IntegerField('num_pages', validators = [DataRequired()])
-    publisher = StringField('publisher')
-    published_year = StringField('published_year')
-    isbn = StringField('isbn')
+    author = StringField('author', validators = [DataRequired()])
     submit_button = SubmitField()
+
+# class GenreForm(FlaskForm):
+#     genre = StringField('genre', validators = [DataRequired()])
+#     submit_button = SubmitField()

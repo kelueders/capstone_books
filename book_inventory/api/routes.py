@@ -10,20 +10,12 @@ api = Blueprint('api', __name__, url_prefix='/api')
 def create_book(our_user):
 
     title = request.json['title']
-    author_first = request.json['author_first']
-    author_last = request.json['author_last']
-    summary = request.json['summary']
-    price = request.json['price']
-    num_pages = request.json['num_pages']
-    publisher = request.json['publisher']
-    published_year = request.json['published_year']
-    isbn = request.json['isbn']
+    author = request.json['author']
     user_token = our_user.token
 
     print(f"User Token: {our_user.token}")
 
-    book = Book(title, author_first, author_last, summary, price, num_pages, publisher, published_year,
-                  isbn, user_token)
+    book = Book(title, author, user_token)
     
     # add the book and commit it to the database
 
@@ -37,7 +29,7 @@ def create_book(our_user):
 #Read 1 Single Book Endpoint
 @api.route('/books/<id>', methods = ['GET'])
 @token_required
-def get_drone(our_user, id):
+def get_book(our_user, id):
     if id:
         book = Book.query.get(id)
         response = book_schema.dump(book)
@@ -49,7 +41,7 @@ def get_drone(our_user, id):
 # Read all the books
 @api.route('/books', methods = ['GET'])
 @token_required
-def get_drones(our_user):
+def get_books(our_user):
     token = our_user.token
     books = Book.query.filter_by(user_token = token).all()
     response = books_schema.dump(books)
@@ -59,18 +51,11 @@ def get_drones(our_user):
 # Update 1 Book by ID
 @api.route('/books/<id>', methods = ['PUT'])
 @token_required
-def update_drone(our_user, id):
+def update_book(our_user, id):
     book = Book.query.get(id)
 
     book.title = request.json['title']
-    book.author_first = request.json['author_first']
-    book.author_last = request.json['author_last']
-    book.summary = request.json['summary']
-    book.price = request.json['price']
-    book.num_pages = request.json['num_pages']
-    book.publisher = request.json['publisher']
-    book.published_year = request.json['published_year']
-    book.isbn = request.json['isbn']
+    book.author = request.json['author']
     book.user_token = our_user.token
 
     db.session.commit()
@@ -83,7 +68,7 @@ def update_drone(our_user, id):
 #Delete 1 Book by ID
 @api.route('/books/<id>', methods = ['DELETE'])
 @token_required
-def delete_drone(our_user, id):
+def delete_book(our_user, id):
     book = Book.query.get(id)
     db.session.delete(book)
     db.session.commit()

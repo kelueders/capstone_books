@@ -8,48 +8,53 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="../static/css/main.css">
-<title>Book Inventory API</title>
+<title>Reading Fusion</title>
 </head>
 <body>
 
     <!-- NavBar Here -->
-    <nav class="ct-nav">
-        <div>
-            <img src="../static/images/logo.jpg" alt="Books Galore Logo">
-        </div>
 
-        <div>
-            <ul id="horizontal-list">
-                <a href="{{ url_for('site.home') }}">
-                    <li>The Books Galore Project</li>
-                </a>
-                <a href="{{ url_for('site.home') }}">
-                    <li>Home</li>
-                </a>
-                {% if current_user.is_authenticated %}
-                    <a href="{{ url_for('site.profile')}}">
-                        <li>Profile</li>
-                    </a>
-                    <a href="{{ url_for('auth.logout')}}">
-                        <li>Log Out</li>
-                    </a>
-                {% else %}
-                    <a href="{{ url_for('auth.signin') }}">
-                        <li>Sign In</li>
-                    </a>
-                    <a href="{{ url_for('auth.signup') }}">
-                        <li>Sign Up Free</li>
-                    </a>
-                {% endif %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('site.home') }}">Reading Fusion</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('site.home') }}">Home</a>
+              </li>
+              {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('site.list_by_genre')}}">Top Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('site.profile')}}">My List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.logout')}}">Log Out</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.signin') }}">Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.signup') }}">Sign Up</a>
+              </li>
+              {% endif %}
             </ul>
+          </div>
         </div>
-    </nav>
+      </nav>
 
     <!-- End Nav Bar -->
 
     <!-- something else from a different html page is going to go here -->
+    <main>
     {% block content %}       
     {% endblock content %}
+    </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>

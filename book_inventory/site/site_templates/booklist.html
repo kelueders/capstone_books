@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+    {% for top_book in top_books %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ top_book.cover }}" class="card-img-top" alt="open book">
+            <div class="card-body">
+                <h5 class="card-title">{{ top_book.name }}</h5>
+                <p class="card-text"><a href="{{ top_book.url }}" target="_blank" rel="noopener noreferrer">Learn More on GoodReads</a></p>
+            </div>
+            <!-- <ul class="list-group list-group-flush">
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test </li>
+            </ul> -->
+            <div class="card-body">
+                <a href="{{ url_for('api.create_book')}}" class="card-link">Add To List</a>
+                <a href="#" class="card-link">Update</a>
+                <a href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+
+    </div>
+</div>
+
+{% endblock content %}

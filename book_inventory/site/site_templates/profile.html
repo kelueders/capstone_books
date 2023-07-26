@@ -17,36 +17,50 @@
     {% endif %}
 {% endwith %}
 
-<header class="hero-section">
-    <h3 class="header-text">Welcome to Books Galore, {{ current_user.username }}!</h3>
-    <main class="container book_form">
+<!-- <header class="hero-section">
+    <h3 class="header-text">Welcome to Reading Fusion, {{ current_user.username }}!</h3>
+    <div class="container book_form">
         <div class="row">
             <aside class="col-12 col-md-6">
-                <h2>Add a Book to Your Collection!</h2>
-                {% include 'bookform.html' %}
+                <h2 class="header-text">Add a Book to Your Collection</h2>
+  
             </aside>
         </div>
-    </main>
-</header>
+    </div>
+</header> -->
 
 <div class="container">
-    <h3>Here are your profile details</h3>
-    <ul class="list-group">
-        <li class="list-group-item">Email: {{ current_user.email }}</li>
-        <li class="list-group-item">Token: {{ current_user.token }}</li>    
-    </ul>
     <div class="row">
+        <h3 class="header-text">Welcome to Reading Fusion, {{ current_user.username }}!</h3>
+    </div>
+    <div class="row">
+        <div class="col-5 profile-details">
+            <h6>Here are your profile details</h6>
+            <ul class="list-group">
+                <li class="list-group-item">Email: {{ current_user.email }}</li>
+                <li class="list-group-item">Token: {{ current_user.token }}</li>    
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="header-text">Add a Book to Your Collection</h2>
+
+        <!-- Insert search bar for genre which takes you to the Top Books page -->
+
+    </div>
+    <div class="row">
+        <h2 class="header-text">To Be Read</h2>
         {% for book in books %}
         <div class="card" style="width: 18rem;">
             <img src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg" class="card-img-top" alt="open book">
             <div class="card-body">
                 <h5 class="card-title">{{ book.title }}</h5>
-                <p class="card-text">{{ book.summary }}</p>
+                <p class="card-text">{{ book.author }}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Author: {{book.author_first}} {{book.author_last}}</li>
+                <!-- <li class="list-group-item">Author: {{book.author_first}} {{book.author_last}}</li>
                 <li class="list-group-item">Page Count: {{ book.num_pages }}</li>
-                <li class="list-group-item">Published Year: {{ book.published_year}} </li>
+                <li class="list-group-item">Published Year: {{ book.published_year}} </li> -->
             </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Update </a>
