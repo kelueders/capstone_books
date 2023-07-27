@@ -17,6 +17,18 @@ main {
     color: rgb(163, 3, 3);
 }
 
+.navbar-brand {
+    color:rgb(197, 133, 14)
+}
+
+.navbar-toggler {
+    background-color: rgb(83, 20, 20);
+}
+
+button span {
+    color: white;
+}
+
 /* Main Logo Image */
 .ct-nav img {
     padding: 20px;
@@ -141,6 +153,29 @@ p {
 .list-group-item {
     background-color: black;
     color: blanchedalmond;
+}
+
+.card {
+    background-color: black;
+    padding-top: 10px;
+}
+
+.book-input {
+    display: flex;
+    justify-content: center;
+}
+
+.card-link {
+    color: rgb(83, 20, 20);
+    text-decoration: none;
+}
+
+.booklist {
+    background-color: black;
+}
+
+a:hover {
+    color: orange;
 }
 
 /* End Profile Section */

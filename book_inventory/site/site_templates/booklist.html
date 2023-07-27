@@ -6,7 +6,7 @@
     <div class="row">
 
     {% for top_book in top_books %}
-        <div class="card" style="width: 18rem;">
+        <div class="card booklist" style="width: 18rem;">
             <img src="{{ top_book.cover }}" class="card-img-top" alt="open book">
             <div class="card-body">
                 <h5 class="card-title">{{ top_book.name }}</h5>
@@ -23,8 +23,8 @@
                     <input type="radio" value="{{ top_book.book_id }}" id="add">
 
                     <!-- <a href="{{ url_for('api.create_book')}}" class="card-link">Add To List</a> -->
-                    <a href="#" class="card-link">Update</a>
-                    <a href="#" class="card-link">Delete</a>
+                    <!-- <a href="#" class="card-link">Update</a>
+                    <a href="#" class="card-link">Delete</a> -->
 
                     <input type="submit" value="Submit">
                 </form>

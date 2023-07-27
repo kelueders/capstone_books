@@ -2,11 +2,22 @@
     {{ form.hidden_tag() }}          
     <div class="form-group">
         <fieldset id="genre-field">
+            <legend>Choose a genre:</legend>
+            <select id="genre" name="genre">
+                <option value="romance">Romance</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="mystery">Mystery</option>
+                <option value="horror">Horror</option>
+            </select>
+        </fieldset>
+                    
+        <!-- <fieldset id="genre-field">
             {{ form.genre.label }}
             {{ form.genre(class='form-control', placeholder = "genre") }}
-        </fieldset>
+        </fieldset> -->
 
         <!-- Submit Button Field -->
         {{ form.submit_button(class='btn btn-primary btn-block') }}
     </div>
 </form>
+

@@ -38,15 +38,19 @@
             <h6>Here are your profile details</h6>
             <ul class="list-group">
                 <li class="list-group-item">Email: {{ current_user.email }}</li>
-                <li class="list-group-item">Token: {{ current_user.token }}</li>    
+                <li class="list-group-item">Year Reading Goal: x books</li>
+                <!-- <li class="list-group-item">Token: {{ current_user.token }}</li>     -->
             </ul>
         </div>
     </div>
     <div class="row">
         <h2 class="header-text">Add a Book to Your Collection</h2>
-
+    </div>
+    <div class="row">
+        <div class="col-12 book-input">
         <!-- Insert search bar for genre which takes you to the Top Books page -->
-
+        {% include 'bookform.html' %}
+        </div>
     </div>
     <div class="row">
         <h2 class="header-text">To Be Read</h2>
@@ -64,7 +68,7 @@
             </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Update </a>
-                <a href="#" class="card-link">Another link</a>
+                <a href="#" class="card-link">Delete</a>
             </div>
         </div>
         {% endfor %}
