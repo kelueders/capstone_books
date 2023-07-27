@@ -18,9 +18,16 @@
                 <li class="list-group-item">Test </li>
             </ul> -->
             <div class="card-body">
-                <a href="{{ url_for('api.create_book')}}" class="card-link">Add To List</a>
-                <a href="#" class="card-link">Update</a>
-                <a href="#" class="card-link">Delete</a>
+                <form action="{{ url_for('api.create_book')}}" method="POST">
+                    <label for="add">Add to List:</label>
+                    <input type="radio" value="{{ top_book.book_id }}" id="add">
+
+                    <!-- <a href="{{ url_for('api.create_book')}}" class="card-link">Add To List</a> -->
+                    <a href="#" class="card-link">Update</a>
+                    <a href="#" class="card-link">Delete</a>
+
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
     {% endfor %}
