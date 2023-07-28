@@ -38,37 +38,35 @@
             <h6>Here are your profile details</h6>
             <ul class="list-group">
                 <li class="list-group-item">Email: {{ current_user.email }}</li>
-                <li class="list-group-item">Year Reading Goal: x books</li>
+                <li class="list-group-item">My Annual Reading Goal: x books</li>
                 <!-- <li class="list-group-item">Token: {{ current_user.token }}</li>     -->
             </ul>
         </div>
     </div>
-    <div class="row">
-        <h2 class="header-text">Add a Book to Your Collection</h2>
+    <!-- <div class="row">
+        <h2 class="header-text">Add a Book Manually to Your Collection</h2>
     </div>
     <div class="row">
-        <div class="col-12 book-input">
+        <div class="col-12 book-input"> -->
         <!-- Insert search bar for genre which takes you to the Top Books page -->
-        {% include 'bookform.html' %}
-        </div>
-    </div>
+        
+       {# note: don't want to use
+        {% include 'bookform.html' %} 
+        #}
+        <!-- </div> -->
+    <!-- </div> -->
     <div class="row">
         <h2 class="header-text">To Be Read</h2>
         {% for book in books %}
         <div class="card" style="width: 18rem;">
-            <img src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg" class="card-img-top" alt="open book">
+            <img src="{{ book.author }}" style="height:300px; width: 195px;" class="card-img-top" alt="open book">
             <div class="card-body">
                 <h5 class="card-title">{{ book.title }}</h5>
-                <p class="card-text">{{ book.author }}</p>
+                <p class="card-text"></p>
             </div>
-            <ul class="list-group list-group-flush">
-                <!-- <li class="list-group-item">Author: {{book.author_first}} {{book.author_last}}</li>
-                <li class="list-group-item">Page Count: {{ book.num_pages }}</li>
-                <li class="list-group-item">Published Year: {{ book.published_year}} </li> -->
-            </ul>
             <div class="card-body">
-                <a href="#" class="card-link">Update </a>
-                <a href="#" class="card-link">Delete</a>
+                <a href="{{ url_for('api.update_book', id=book.id) }}" class="card-link">Update </a>
+                <a href="{{ url_for('api.delete_book', id=book.id) }}" class="card-link">Delete</a>
             </div>
         </div>
         {% endfor %}

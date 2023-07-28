@@ -7,7 +7,7 @@
 
     {% for top_book in top_books %}
         <div class="card booklist" style="width: 18rem;">
-            <img src="{{ top_book.cover }}" class="card-img-top" alt="open book">
+            <img src="{{ top_book.cover }}" style="height:300px; width: 195px;" class="card-img-top" alt="open book">
             <div class="card-body">
                 <h5 class="card-title">{{ top_book.name }}</h5>
                 <p class="card-text"><a href="{{ top_book.url }}" target="_blank" rel="noopener noreferrer">Learn More on GoodReads</a></p>
@@ -18,16 +18,12 @@
                 <li class="list-group-item">Test </li>
             </ul> -->
             <div class="card-body">
-                <form action="{{ url_for('api.create_book')}}" method="POST">
-                    <label for="add">Add to List:</label>
-                    <input type="radio" value="{{ top_book.book_id }}" id="add">
-
-                    <!-- <a href="{{ url_for('api.create_book')}}" class="card-link">Add To List</a> -->
-                    <!-- <a href="#" class="card-link">Update</a>
-                    <a href="#" class="card-link">Delete</a> -->
-
-                    <input type="submit" value="Submit">
+                <form action="{{ url_for('api.create_book') }}" method="GET">
+                    <input type="hidden" value="{{ top_book.name }}" name="name">
+                    <input type="hidden" value="{{ top_book.cover }}" name="author">
+                    <button>Add To List</button>
                 </form>
+
             </div>
         </div>
     {% endfor %}

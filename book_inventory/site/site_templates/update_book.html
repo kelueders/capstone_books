@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="{{ url_for('api.update_book'), id=book.id}}" method="GET">
+                <label for="title">Book Title:</label>
+                <input type="hidden" value="{{ book.id }}" name="title">
+                <input type="text" value="{{ book.title }}" name="title">
+                <button>Update</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

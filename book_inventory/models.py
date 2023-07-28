@@ -48,7 +48,7 @@ class User(db.Model, UserMixin):
 class Book(db.Model):
     id = db.Column(db.String, primary_key = True)
     title = db.Column(db.String(150))
-    author = db.Column(db.String(100))
+    author = db.Column(db.String(300))
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
     # One User to Many Books, so the foreign key is in the Book Class
 
