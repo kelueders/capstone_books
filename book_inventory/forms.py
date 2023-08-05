@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, DecimalField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email
 
 class UserLoginForm(FlaskForm):
@@ -15,6 +15,6 @@ class BookForm(FlaskForm):
     author = StringField('author', validators = [DataRequired()])
     submit_button = SubmitField()
 
-# class GenreForm(FlaskForm):
-#     genre = StringField('genre', validators = [DataRequired()])
-#     submit_button = SubmitField()
+class GenreForm(FlaskForm):
+    genre = SelectField('genre', choices=[('romance', 'fantasy', 'mystery', 'horror', 'thriller')])
+    submit_button = SubmitField()
