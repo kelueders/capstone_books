@@ -51,20 +51,36 @@ def create_book():
 #     return jsonify(response)
 
 # Update 1 Book by ID
-@api.route('/books/<id>', methods = ['PUT'])
+@api.route('/books/update/<id>', methods = ['GET', 'POST'])
 @login_required
 def update_book(id):
     book = Book.query.get(id)
+    
+    if request.method == 'POST':
+        if book:
+            db.session.delete(book)
+            db.session.commit()
 
-    book.title = request.json['title']
-    # book.author = request.json['author']
-    # book.user_token = our_user.token
+            title = request.form['title']
 
-    db.session.commit()
+            book = Book(id=id, title=title)
 
-    response = book_schema.dump(book)
+            db.session.add(book)
+            db.session.commit()
+            return redirect(url_for("site.profile"))
+        return f"Book with id = {id} does not exist."
+    
+    return render_template('update_book.html', book = book)
 
-    return jsonify(response)
+    # book.title = request.json['title']
+    # # book.author = request.json['author']
+    # # book.user_token = our_user.token
+
+    # db.session.commit()
+
+    # response = book_schema.dump(book)
+
+    # return jsonify(response)
 
 # @api.route('/book_form/<id>')
 # @login_required

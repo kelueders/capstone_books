@@ -5,6 +5,29 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            {% include 'bookform.html' %}
+        </div>
+
+    </div>
+</div>
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="" method="POST">
+                <input type="hidden" value="{{ book.id }}" name="id">
+                <label for="title">Book Title:</label>
+                <input type="text" value="{{ book.title }}" name="title">
+                <input type = "submit" value = "Update" />
+            </form>
+        </div>
+
+    </div>
+</div> -->
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-12">
             <form action="{{ url_for('api.update_book'), id=book.id}}" method="GET">
                 <label for="title">Book Title:</label>
                 <input type="hidden" value="{{ book.id }}" name="title">
@@ -14,7 +37,7 @@
         </div>
 
     </div>
-</div>
+</div> -->
 
 
 {% endblock content %}

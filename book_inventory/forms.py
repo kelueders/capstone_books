@@ -12,7 +12,7 @@ class UserLoginForm(FlaskForm):
 
 class BookForm(FlaskForm):
     title = StringField('title', validators = [DataRequired()])
-    author = StringField('author', validators = [DataRequired()])
+    # author = StringField('author', validators = [DataRequired()])
     submit_button = SubmitField()
 
 class GenreForm(FlaskForm):
