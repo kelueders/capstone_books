@@ -58,7 +58,6 @@ def update_book(id):
     
     if request.method == 'POST':
         if book:
-            db.session.delete(book)
             db.session.commit()
 
             title = request.form['title']
